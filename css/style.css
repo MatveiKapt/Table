@@ -1,0 +1,240 @@
+/* Fonts */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../fonts/ubuntu-light.woff2);
+  src: url(../fonts/ubuntu-light.woff);
+  font-weight: 300;
+  font-style: normal;
+}
+ 
+ @font-face {
+  font-family: "Bebas Neue";
+  src: url(../fonts/bebasneue-bold.woff2);
+  src: url(../fonts/bebasneue-bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Variables */
+
+:root {
+  --background: #F3F3F3;
+  --slogan: #0B64FE;
+  --text: #181818;
+  --button: #A6FFFF;
+  --button-text: #000000;
+}
+
+ /* Global */
+ 
+ .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Blocks */
+
+.page-body {
+  background-color: var(--background);
+  font-family: "Ubuntu";
+  font-size: 16px;
+  line-height: 27.2px;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.presentation {
+  padding: 12px;
+  padding-bottom: 20px;
+}
+
+.presentation__slogan {
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: "Bebas Neue";
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--slogan);
+}
+
+.presentation__specification {
+  margin: 0;
+  margin-bottom: 15px;
+}
+.presentation__specification:last-of-type {
+  margin-bottom: 0;
+}
+
+.presentation__table-wrapper {
+  position: relative;
+  width: 295px;
+  height: 290px;
+  margin: 0 auto;
+}
+
+.presentation__table {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 165%;
+  background-position: -100px -30px;
+}
+
+.presentation__table--top {
+  background-image: url("../images/table-top-mobile.png");
+  transition: transform 1s;
+}
+
+.presentation__table--bottom {
+  background-image: url("../images/table-bottom-mobile.png");
+  background-size: 165.6%;
+  background-position: -101px -30px;
+}
+
+@media (min-resolution: 2dppx) {
+  .presentation__table--top {
+    background-image: url("../images/table-top-mobile@2x.png");
+    background-size: 165%;
+  }
+
+  .presentation__table--bottom {
+    background-image: url("../images/table-bottom-mobile@2x.png");
+    background-size: 165.6%;
+  }
+}
+
+.lower {
+  transform: translateY(25px);
+}
+
+.raise {
+  transform: translateY(0px);
+}
+
+.presentation__table-controls {
+  position: absolute;
+  bottom: 30%;
+  left: 23%;
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.presentation__table-button {
+  width: 61px;
+  height: 61px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--button);
+  font-size: 12.28px;
+  line-height: 20.87px;
+  color: var(--button-text);
+  text-transform: lowercase;
+}
+
+.br-desktop-only {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .presentation {
+    width: 970px;
+    padding: 25px 80px 25px 50px;
+    display: grid;
+    grid-template-columns: 650px 320px;
+    grid-template-rows: repeat(3, min-content);
+    align-items: center;
+  }
+
+  .presentation__slogan {
+    margin-bottom: 16px;
+    grid-column: 2 / -1;
+    font-family: "Ubuntu";
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 300;
+  }
+
+  .presentation__specification {
+    margin-bottom: 20px;
+    grid-column: 2 / -1;
+    font-size: 14px;
+    line-height: 29px;
+  }
+
+  .presentation__table-wrapper {
+    width: 650px;
+    height: 500px;
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+  }
+
+  .presentation__table {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 144%;
+    background-position: -153px -86px;
+  }
+  
+  .presentation__table--top {
+    background-image: url("../images/table-top-desktop.png");
+    background-size: 143%;
+    background-position: -150px -86px;
+    transition: transform 1s;
+  }
+  
+  .presentation__table--bottom {
+    background-image: url("../images/table-bottom-desktop.png");
+  }
+
+  @media (min-resolution: 2dppx) {
+    .presentation__table--top {
+      background-image: url("../images/table-top-desktop@2x.png");
+      background-size: 143%;
+    }
+  
+    .presentation__table--bottom {
+      background-image: url("../images/table-bottom-desktop@2x.png");
+      background-size: 144%;
+    }
+  }
+
+  .lower {
+    transform: translateY(30px);
+  }
+
+  .presentation__table-controls {
+    width: 300px;
+    left: 24.5%;
+    bottom: 26%;
+  }
+
+  .presentation__table-button {
+    width: 125px;
+    height: 125px;
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .br-desktop-only {
+    display: block;
+  }
+}
