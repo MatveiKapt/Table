@@ -1,0 +1,341 @@
+/* Fonts */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../fonts/ubuntu-light.woff2);
+  src: url(../fonts/ubuntu-light.woff);
+  font-weight: 300;
+  font-style: normal;
+}
+ 
+ @font-face {
+  font-family: "Bebas Neue";
+  src: url(../fonts/bebasneue-bold.woff2);
+  src: url(../fonts/bebasneue-bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Variables */
+
+:root {
+  --background: #F3F3F3;
+  --title: #0B64FE;
+  --text: #181818;
+  --button: #A6FFFF;
+  --button-text: #000000;
+}
+
+ /* Global */
+ 
+ .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Blocks */
+
+.page-body {
+  font-family: "Ubuntu";
+  font-size: 16px;
+  line-height: 27.2px;
+  font-weight: 300;
+  color: var(--text);
+
+  background-color: var(--background);
+}
+
+.presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  padding: 12px;
+  padding-bottom: 20px;
+}
+
+.presentation__title {
+  margin: 0;
+  margin-bottom: 30px;
+  max-width: 241px;
+
+  font-family: "Bebas Neue";
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 700;
+  color: var(--title);
+  text-transform: uppercase;
+}
+
+.presentation__specification {
+  margin: 0;
+  margin-bottom: 15px;
+  max-width: 300px;
+}
+
+.presentation__specification:last-of-type {
+  margin-bottom: 0;
+}
+
+.presentation__table-wrapper {
+  position: relative;
+
+  width: 295px;
+  height: 290px;
+  margin: 0 auto;
+}
+
+.presentation__table {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: 165%;
+  background-position: -100px -30px;
+}
+
+.presentation__table--top {
+  background-image: url("../images/table-top-mobile.webp");
+
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  -o-transition: transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.presentation__table--bottom {
+  background-image: url("../images/table-bottom-mobile.webp");
+  background-size: 165.6%;
+  background-position: -101px -30px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 2dppx) {
+  .presentation__table--top {
+    background-image: url("../images/table-top-mobile@2x.webp");
+    background-size: 165%;
+  }
+
+  .presentation__table--bottom {
+    background-image: url("../images/table-bottom-mobile@2x.webp");
+    background-size: 165.6%;
+  }
+}
+
+.lower {
+  -webkit-transform: translateY(25px);
+      -ms-transform: translateY(25px);
+          transform: translateY(25px);
+}
+
+.raise {
+  -webkit-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.presentation__table-controls {
+  position: absolute;
+  bottom: 30%;
+  left: 23%;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 145px;
+}
+
+.presentation__table-button {
+  width: 61px;
+  height: 61px;
+  
+  font-size: 12.28px;
+  line-height: 20.87px;
+  color: var(--button-text);
+  text-transform: lowercase;
+  
+  background-color: var(--button);
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.br-desktop-only {
+  display: none;
+}
+
+@media (min-width: 950px) {
+
+  .page-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .presentation {
+    padding: 25px 80px 25px 50px;
+  }
+
+  .presentation__inner {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 650px 320px;
+    grid-template-columns: 650px 320px;
+    -ms-grid-rows: (-webkit-min-content)[3];
+    -ms-grid-rows: (min-content)[3];
+    grid-template-rows: repeat(3, -webkit-min-content);
+    grid-template-rows: repeat(3, min-content);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .presentation__inner > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .presentation__inner > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+
+  .presentation__inner > *:nth-child(3) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+
+  .presentation__inner > *:nth-child(4) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+
+  .presentation__inner > *:nth-child(5) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+
+  .presentation__inner > *:nth-child(6) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+  }
+
+  .presentation__title {
+    grid-column: 2 / -1;
+    margin-bottom: 16px;
+    max-width: 305px;
+
+    font-family: "Ubuntu";
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: none;
+  }
+
+  .presentation__specification {
+    grid-column: 2 / -1;
+    margin-bottom: 20px;
+    max-width: 315px;
+
+    font-size: 14px;
+    line-height: 29px;
+  }
+
+  .presentation__table-wrapper {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    width: 650px;
+    height: 500px;
+  }
+
+  .presentation__table {
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: 144%;
+    background-position: -153px -86px;
+  }
+  
+  .presentation__table--top {
+    background-image: url("../images/table-top-desktop.webp");
+    background-size: 143%;
+    background-position: -150px -86px;
+
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+  }
+  
+  .presentation__table--bottom {
+    background-image: url("../images/table-bottom-desktop.webp");
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 2dppx) {
+    .presentation__table--top {
+      background-image: url("../images/table-top-desktop@2x.webp");
+      background-size: 143%;
+    }
+  
+    .presentation__table--bottom {
+      background-image: url("../images/table-bottom-desktop@2x.webp");
+      background-size: 144%;
+    }
+  }
+
+  .lower {
+    -webkit-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+
+  .presentation__table-controls {
+    left: 24.5%;
+    bottom: 26%;
+
+    width: 300px;
+  }
+
+  .presentation__table-button {
+    width: 125px;
+    height: 125px;
+
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .br-desktop-only {
+    display: block;
+  }
+}
